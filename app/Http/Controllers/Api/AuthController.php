@@ -18,107 +18,111 @@ use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
-    public function AddRegister(RegisterRequest $request){
+    public function AddRegister(RegisterRequest $request)
+    {
         // dd($request->all());
         // dd means dump and die which is used to see the request send by userr
-        try{
+        try {
             // yo user utya model bta ako ho hai
             $user = User::create([
                 'name' => $request->name,
-                'email' => $request -> email,   
-                'password'=> Hash::make($request -> password),
-                'phonenumber' => $request -> phonenumber
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phonenumber' => $request->phonenumber
             ]);
-            if ($user){
+            if ($user) {
                 // yo chai role assign gareko
-                $user-> assignRole('user');
+                $user->assignRole('user');
                 // return ResponseHelper::success(message:'User is saved',data:$user,statusCode:201);
                 $this->sendOtp($user);
-                return ResponseHelper::success(message:'Mail has been sent, please check your mail',data:[],statusCode:201);
-
-            }else{
-                return ResponseHelper::errors(message:'Unable to create user',statusCode:422);
+                return ResponseHelper::success(message: 'Mail has been sent, please check your mail', data: [], statusCode: 201);
+            } else {
+                return ResponseHelper::errors(message: 'Unable to create user', statusCode: 422);
             }
-        }catch(Exception $ex){
-            return ResponseHelper::errors(message:'Unable to save'.$ex->getMessage(),statusCode:500);
+        } catch (Exception $ex) {
+            return ResponseHelper::errors(message: 'Unable to save' . $ex->getMessage(), statusCode: 500);
         }
     }
 
 
 
-    public function login(LoginRequest $request){
+    public function login(LoginRequest $request)
+    {
         // dd('Hello');
-        $auth = Auth::attempt(['email'=> $request->email,'password'=>$request->password]);
+        $auth = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
         // dd($auth);
-        if ($auth === false){
-            return ResponseHelper::errors(message:'Incorrect username or passsword',statusCode:401);
+        if ($auth === false) {
+            return ResponseHelper::errors(message: 'Incorrect username or passsword', statusCode: 401);
         }
         $user = Auth::user();
         // dd($user);
         // if (!$user->is_verified){
         //     return ResponseHelper::errors(message:'Please verify your mail',statusCode:401);
         // }
-        $token = $user ->createToken('token')->plainTextToken;
-        $authUser=[
-            'user'=> $user,
-            'token'=> $token
+        $token = $user->createToken('token')->plainTextToken;
+        $authUser = [
+            'user' => $user,
+            'token' => $token
         ];
         // dd($token);
-        return ResponseHelper::success(message:'User is Logged in',data:$authUser,statusCode:200);
+        return ResponseHelper::success(message: 'User is Logged in', data: $authUser, statusCode: 200);
     }
 
-    public function logout(){
+    public function logout()
+    {
         $user = Auth::user();
-        if($user){
+        if ($user) {
             $user->currentAccessToken()->delete();
-            return ResponseHelper::success(message:'User is logged out',statusCode:200);
-        }else{
-            return ResponseHelper::errors(message:'User is not found',statusCode:422);
+            return ResponseHelper::success(message: 'User is logged out', statusCode: 200);
+        } else {
+            return ResponseHelper::errors(message: 'User is not found', statusCode: 422);
         }
     }
 
-    public function sendOtp($user){
+    public function sendOtp($user)
+    {
         // 6ota num ko otp pathauna with time
-        $otp = rand(100000,999999);
+        $otp = rand(100000, 999999);
         $time = date('Y-m-d H:i:s');
 
         EmailVerification::updateOrCreate(
             // left ma vako chai databasema vako column name ho hai
-            ['email'=>$user->email],
-            ['otp'=> $otp],
-            ['updated_at'=> $time]
+            ['email' => $user->email],
+            ['otp' => $otp],
+            ['updated_at' => $time]
         );
         $data['email'] = $user->email;
         $data['title'] = "Mail Verification";
         $data['body'] = "Your OTP is :" . $otp;
         // yo mail chai blade file wala mail ho hai
-        Mail::send('mail',['data'=>$data], function($message) use ($data){
+        Mail::send('mail', ['data' => $data], function ($message) use ($data) {
             $message->to($data['email'])->subject($data['title']);
         });
     }
 
     public function verifiedOtp(Request $request)
     {
-        try{
-        $user = User::where('email', $request->input('email'))->first();
-        $otpData = EmailVerification::where('otp', $request->input('otp'))->first();
-        if (!$otpData) {
-            return ResponseHelper::errors(message: 'Wrong otp', statusCode: 400);
-        } else {
-
-            $currentTime = strtotime(date('Y-m-d H:i:s'));
-            $time = strtotime($otpData->updated_at);
-
-
-            if ($currentTime >= $time && $time >= $currentTime - (90 + 5)) {
-                User::where('id', $user->id)->update([
-                    'is_verified' => 1
-                ]);
-                return ResponseHelper::success(message: 'Mail Verified ', data: $user, statusCode: 200);
+        try {
+            $user = User::where('email', $request->input('email'))->first();
+            $otpData = EmailVerification::where('otp', $request->input('otp'))->first();
+            if (!$otpData) {
+                return ResponseHelper::errors(message: 'Wrong otp', statusCode: 400);
             } else {
-                return ResponseHelper::errors(message: 'Mail Expired ', statusCode: 400);
+
+                $currentTime = strtotime(date('Y-m-d H:i:s'));
+                $time = strtotime($otpData->updated_at);
+
+
+                if ($currentTime >= $time && $time >= $currentTime - (90 + 5)) {
+                    User::where('id', $user->id)->update([
+                        'is_verified' => 1
+                    ]);
+                    return ResponseHelper::success(message: 'Mail Verified ', data: $user, statusCode: 200);
+                } else {
+                    return ResponseHelper::errors(message: 'Mail Expired ', statusCode: 400);
+                }
             }
-        }}catch(Exception $e){
+        } catch (Exception $e) {
             return ResponseHelper::errors(message: $e->getMessage(), statusCode: 500);
         }
     }
@@ -142,7 +146,7 @@ class AuthController extends Controller
 
     public function forgotPassword(ForgotPasswordRequest $request)
     {
-       // dd('hi');
+        // dd('hi');
         try {
             $user = User::where('email', $request->email)->first();
 
@@ -169,7 +173,7 @@ class AuthController extends Controller
             $currentTime = now()->timestamp;
             $otpTime = strtotime($otpData->updated_at);
 
-            if ($currentTime > $otpTime + 90) { 
+            if ($currentTime > $otpTime + 90) {
                 return ResponseHelper::errors('OTP expired', 400);
             }
 
@@ -177,7 +181,7 @@ class AuthController extends Controller
             $user->password = Hash::make($request->password);
             $user->save();
 
-            
+
             $otpData->delete();
 
             return ResponseHelper::success('Password has been reset successfully', [], 200);
