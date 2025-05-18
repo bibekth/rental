@@ -24,6 +24,11 @@ class AuthController extends Controller
         // dd means dump and die which is used to see the request send by userr
         try {
             // yo user utya model bta ako ho hai
+            $user = User::where('email', $request->email)->exists();
+            if($user){
+                return ResponseHelper::errors(message: 'User already exists', statusCode: 400);
+            }
+            
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -34,7 +39,7 @@ class AuthController extends Controller
                 // yo chai role assign gareko
                 $user->assignRole('user');
                 // return ResponseHelper::success(message:'User is saved',data:$user,statusCode:201);
-                $this->sendOtp($user);
+                // $this->sendOtp($user);
                 return ResponseHelper::success(message: 'Mail has been sent, please check your mail', data: [], statusCode: 201);
             } else {
                 return ResponseHelper::errors(message: 'Unable to create user', statusCode: 422);
