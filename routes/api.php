@@ -86,4 +86,4 @@ Route::controller(OrderController::class)->middleware('auth:sanctum')->group(fun
     //     Route::delete('orderdetails/{id}', [OrderDetailController::class, 'destroy']);
     // });
 
-Route::post('/gitlab-webhooks', [HomeController::class, 'gitlabWebhook']);
+Route::post('/github-webhooks', [HomeController::class, 'githubWebhook']);
