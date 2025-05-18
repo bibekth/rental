@@ -77,6 +77,7 @@ class HomeController extends Controller
     {
         try {
             $secret = 'monkey@21';
+            
             $gitlabToken = $request->header('X-Gitlab-Token');
 
             if ($gitlabToken !== $secret) {
