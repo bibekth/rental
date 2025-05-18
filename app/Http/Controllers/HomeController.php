@@ -55,9 +55,9 @@ class HomeController extends Controller
                 $output = [];
                 $returnCode = 0;
 
-                // exec(`eval "$(ssh-agent -s)" && ssh-add ~/.ssh/merogrocery && cd ~/public_html/merogrocery && git pull origin development 2>&1`, $output, $returnCode);
+                exec(`cd ~/public_html/rental && git pull origin main 2>&1`, $output, $returnCode);
 
-                // file_put_contents("gitlab_webhook.log", implode("\n", $output) . "\n", FILE_APPEND);
+                file_put_contents("gitlab_webhook.log", implode("\n", $output) . "\n", FILE_APPEND);
             }
 
             return response()->json(['success'=>true, 'message'=>'success'], 200);
