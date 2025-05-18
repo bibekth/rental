@@ -1,0 +1,50 @@
+[19-Aug-2024 06:36:24 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:36:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:36:24 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:36:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:36:43 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:36:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:36:44 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:36:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:02 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:03 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:27 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:28 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:48 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:49 UTC] PHP Warning:  require(/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
+[19-Aug-2024 06:37:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home4/techenfi/projects/matina/secondbuysell/buynsell/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/techenfi/projects/matina/secondbuysell/buynsell/public/index.php on line 13
