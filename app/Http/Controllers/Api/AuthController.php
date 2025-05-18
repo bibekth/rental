@@ -22,7 +22,7 @@ class AuthController extends Controller
     {
         // dd($request->all());
         // dd means dump and die which is used to see the request send by userr
-        // try {
+        try {
             // yo user utya model bta ako ho hai
             $user = User::create([
                 'name' => $request->name,
@@ -34,14 +34,14 @@ class AuthController extends Controller
                 // yo chai role assign gareko
                 $user->assignRole('user');
                 // return ResponseHelper::success(message:'User is saved',data:$user,statusCode:201);
-                // $this->sendOtp($user);
+                $this->sendOtp($user);
                 return ResponseHelper::success(message: 'Mail has been sent, please check your mail', data: [], statusCode: 201);
             } else {
                 return ResponseHelper::errors(message: 'Unable to create user', statusCode: 422);
             }
-        // } catch (Exception $ex) {
-        //     return ResponseHelper::errors(message: 'Unable to save' . $ex->getMessage(), statusCode: 500);
-        // }
+        } catch (Exception $ex) {
+            return ResponseHelper::errors(message: 'Unable to save' . $ex->getMessage(), statusCode: 500);
+        }
     }
 
 
