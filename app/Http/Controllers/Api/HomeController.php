@@ -59,7 +59,8 @@ class HomeController extends Controller
 
             return ResponseHelper::success(message: 'Product uploaded successfully', data: $product, statusCode: 201);
         } catch (Exception $ex) {
-            return ResponseHelper::errors(message: 'Unable to save: ' . $ex->getMessage(), statusCode: 500);
+            return response()->json(['message'=>'Unable to save: ' . $ex->getMessage()], 200);
+            // return ResponseHelper::errors(message: 'Unable to save: ' . $ex->getMessage(), statusCode: 500);
         }
     }
 

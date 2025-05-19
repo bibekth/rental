@@ -39,7 +39,7 @@ class ProductUploadRequest extends FormRequest
         ];
     }
     public function messages() : array{
-        return [  
+        return [
            'name.required' => 'Product name is required!',
             'name.string' => 'Product name must be a string.',
             'name.max' => 'Product name cannot exceed 255 characters.',
