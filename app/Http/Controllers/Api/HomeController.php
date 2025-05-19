@@ -46,8 +46,8 @@ class HomeController extends Controller
             $filename = $request->file('photo')->getClientOriginalName();
             $path = $request->file('photo')->storeAs('products', $filename, 'public');
         }
-        $purchaseDate = $request->purchase_date ? Carbon::createFromFormat('d-m-Y', $request->purchase_date)->format('Y-m-d') : null;
-        // try {
+        $purchaseDate = $request->purchase_date ? Carbon::parse($request->purchase_date)->format('Y-m-d') : null;
+        try {
             $product = new Product();
             $product->name = $request->name;
             $product->description = $request->description;
@@ -58,10 +58,10 @@ class HomeController extends Controller
             $product->save();
 
             return ResponseHelper::success(message: 'Product uploaded successfully', data: $product, statusCode: 201);
-        // } catch (Exception $ex) {
-        //     return response()->json(['message'=>'Unable to save: ' . $ex->getMessage()], 200);
-        //     // return ResponseHelper::errors(message: 'Unable to save: ' . $ex->getMessage(), statusCode: 500);
-        // }
+        } catch (Exception $ex) {
+            // return response()->json(['message'=>'Unable to save: ' . $ex->getMessage()], 200);
+            return ResponseHelper::errors(message: 'Unable to save: ' . $ex->getMessage(), statusCode: 500);
+        }
     }
 
     public function showSingleProduct($id)
