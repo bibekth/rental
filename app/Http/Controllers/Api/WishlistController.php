@@ -31,7 +31,8 @@ class WishlistController extends Controller
         try{
             $wishlists = Wishlist::with('product')->where('user_id', auth()->id())->get();
             
-            return response()->json(['success'=>true,'data'=>$wishlists], 200);
+            return response()->json($wishlists);
+            // return response()->json(['success'=>true,'data'=>$wishlists], 200);
         }catch(Throwable $e){
             return response()->json(['success'=>false, 'message'=>$e->getMessage()], 500);
         }
