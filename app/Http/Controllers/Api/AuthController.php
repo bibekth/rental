@@ -10,6 +10,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Models\EmailVerification;
 use App\Models\User;
+use App\Traits\TokenTrait;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
+    use TokenTrait;
+
     public function AddRegister(RegisterRequest $request)
     {
         // dd($request->all());
@@ -53,18 +56,32 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        // dd('Hello');
-        $auth = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
-        // dd($auth);
-        if ($auth === false) {
+        // $auth = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user == null) {
             return ResponseHelper::errors(message: 'Incorrect username or passsword', statusCode: 401);
         }
-        $user = Auth::user();
+        
+        $check = Hash::check($request->password, $user->password);
+        
+        if ($check == false) {
+            return ResponseHelper::errors(message: 'Incorrect username or passsword', statusCode: 401);
+        }
+
+        Auth::login($user);
+
         // dd($user);
         // if (!$user->is_verified){
         //     return ResponseHelper::errors(message:'Please verify your mail',statusCode:401);
         // }
-        $token = $user->createToken('token')->plainTextToken;
+        
+        // $token = $user->createToken('token')->plainTextToken;
+        $token = $this->GenerateToken();
+        $user->remember_token = $token;
+        $user->save();
+
         $authUser = [
             'user' => $user,
             'token' => $token
