@@ -9,6 +9,11 @@ use Throwable;
 
 class WishlistController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('api');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
