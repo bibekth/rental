@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
+use Throwable;
 
 class WishlistController extends Controller
 {
@@ -27,9 +28,14 @@ class WishlistController extends Controller
     
     public function index()
     {
-        $wishlists = Wishlist::with('product')->where('user_id', auth()->id())->get();
+        try{
 
-        return response()->json($wishlists);
+            $wishlists = Wishlist::with('product')->where('user_id', auth()->id())->get();
+            
+            return response()->json($wishlists);
+        }catch(Throwable $e){
+            return response()->json(['success'=>false, 'message'=>$e->getMessage()], 500);
+        }
     }
 
     
