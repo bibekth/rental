@@ -19,23 +19,28 @@ class AuthAPIMiddlware
     public function handle(Request $request, Closure $next)
     {
         $bearerToken = $request->header('authorization');
+
+        if ($bearerToken == null || $bearerToken == "") {
+            return response()->json(['status' => 'Error', 'message' => 'Unauthenticated User.'], 401);
+        }
+        
         $token = '';
         if ($bearerToken && Str::start($bearerToken, 'Bearer ')) {
             $token = substr($bearerToken, 7); // Remove 'Bearer ' prefix
 
-            $pat = DB::table('personal_access_tokens')->where('token',$token)->first();
+            $pat = DB::table('personal_access_tokens')->where('token', $token)->first();
 
             $user = User::find($pat->tokenable_id);
-            
+
             if ($user) {
                 Auth::login($user); // Manually authenticate the user
                 return $next($request);
-            }else{
-                return response()->json(['status'=>'Error','message'=>'Unauthenticated User.'], 401);
+            } else {
+                return response()->json(['status' => 'Error', 'message' => 'Unauthenticated User.'], 401);
             }
-        }else{
+        } else {
             $token = $bearerToken;
-            return response()->json(['status'=>'Error','message'=>'Unauthenticated User.'], 401);
+            return response()->json(['status' => 'Error', 'message' => 'Unauthenticated User.'], 401);
         }
     }
 }
