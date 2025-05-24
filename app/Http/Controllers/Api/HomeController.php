@@ -69,6 +69,7 @@ class HomeController extends Controller
             $product->description = $request->description;
             $product->amount = $request->amount;
             $product->photo = $path;
+            $product->user_id = Auth::id();
             $product->purchase_date = $purchaseDate;
             $product->category_id = $request->category_id;
             $product->save();
