@@ -9,11 +9,6 @@ use Throwable;
 
 class WishlistController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('api');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -34,10 +29,9 @@ class WishlistController extends Controller
     public function index()
     {
         try{
-
             $wishlists = Wishlist::with('product')->where('user_id', auth()->id())->get();
             
-            return response()->json($wishlists);
+            return response()->json(['success'=>true,'data'=>$wishlists], 200);
         }catch(Throwable $e){
             return response()->json(['success'=>false, 'message'=>$e->getMessage()], 500);
         }
