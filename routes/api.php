@@ -29,6 +29,7 @@ Route::controller(AuthController::class)->group(function(){
     // natra yo
 Route::controller(HomeController::class)->group(function(){
     Route::get('products', 'productList');
+    Route::get('my-products', 'myProductList');
     Route::get('categories', 'categoryList');
     Route::post('upload-product','uploadProduct');
     Route::get('show-single-product/{id}','showSingleProduct');

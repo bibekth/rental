@@ -32,4 +32,9 @@ class Product extends Model
     {
         return $this->belongsToMany(User::class, 'wishlists');
     }
+
+    public function product()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
