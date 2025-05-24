@@ -20,12 +20,12 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('forgot-password', 'forgotPassword');
     Route::post('resetpassword', 'resetPassword');
     // Route::post('update-profile','updateProfile');
-    Route::post('logout','logout')->middleware('auth:sanctum');
+    Route::post('logout','logout')->middleware('api');
 
 });
 // login garey si auni vaye chai yesto rakhna parcha
-// Route::controller(HomeController::class)->middleware('auth:sanctum', 'role:user|admin')->group(function(){
-// Route::controller(HomeController::class)->middleware('auth:sanctum')->group(function(){
+// Route::controller(HomeController::class)->middleware('api', 'role:user|admin')->group(function(){
+// Route::controller(HomeController::class)->middleware('api')->group(function(){
     // natra yo
 Route::controller(HomeController::class)->group(function(){
     Route::get('products', 'productList');
@@ -34,44 +34,44 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('show-single-product/{id}','showSingleProduct');
 });
 
-Route::controller(CommentController::class)->middleware('auth:sanctum')->group(function () {
+Route::controller(CommentController::class)->middleware('api')->group(function () {
     Route::post('post-comment', 'store');
     Route::get('show-comments/{product_id}', 'index');
     Route::post('update-comment/{id}', 'update');
     Route::delete('delete-comment/{id}', 'destroy');
 });
 
-Route::controller(OrderController::class)->middleware('auth:sanctum')->group(function () {
+Route::controller(OrderController::class)->middleware('api')->group(function () {
     Route::post('place-order', 'store');
     Route::get('show-orders', 'index');
     Route::post('update-order/{id}', 'update');
     Route::delete('delete-order/{id}', 'destroy');
 });
 
-Route::controller(OrderDetailController::class)->middleware('auth:sanctum')->group(function () {
+Route::controller(OrderDetailController::class)->middleware('api')->group(function () {
     Route::post('order-details-store', 'store');
     Route::get('order-details-show/{id}', 'show');
     Route::post('order-details-update/{id}', 'update');
     Route::delete('order-details-destroy/{id}', 'destroy');
 });
 
-Route::controller(WishlistController::class)->middleware('auth:sanctum')->group(function () {
+Route::controller(WishlistController::class)->middleware('api')->group(function () {
     Route::post('wishlist-store', 'store');
     Route::get('wishlist-show', 'index');
     Route::delete('wishlist-delete/{productId}', 'destroy');
 });
 
 
-Route::controller(OrderController::class)->middleware('auth:sanctum')->group(function () {
+Route::controller(OrderController::class)->middleware('api')->group(function () {
     Route::post('create-orders', 'createOrder');
     // Route::get('show-orders/{id}', 'showOrder');
 
     // Route::get('orders/{id}', 'getOrderDetails');
     // Route::patch('orders/{id}','updateOrderStatus');
 });
-// Route::middleware('auth:sanctum')->group(function () {
+// Route::middleware('api')->group(function () {
 
-    // Route::middleware('auth:sanctum')->group(function () {
+    // Route::middleware('api')->group(function () {
     //     Route::get('orders', [OrderController::class, 'index']);
     //     Route::post('orders', [OrderController::class, 'store']);
     //     Route::get('orders/{id}', [OrderController::class, 'show']);
