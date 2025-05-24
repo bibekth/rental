@@ -27,7 +27,7 @@ class AuthAPIMiddlware
         $token = '';
         if ($bearerToken && Str::start($bearerToken, 'Bearer ')) {
             $token = substr($bearerToken, 9); // Remove 'Bearer ' prefix
-
+            dd($token);
             $pat = DB::table('personal_access_tokens')->where('token', $token)->first();
 
             $user = User::find($pat->tokenable_id);
