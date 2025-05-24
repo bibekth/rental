@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -44,6 +45,7 @@ class ProductController extends Controller
            $path= $request->file('photo')->storeAs('products', $filename,'public');
         }
             $product = new Product();
+            $product->user_id = Auth::id();
             $product->name = $request->name;
             $product->description = $request->description;
             $product->amount = $request->amount;
