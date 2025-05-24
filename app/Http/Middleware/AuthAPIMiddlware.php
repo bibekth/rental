@@ -19,11 +19,11 @@ class AuthAPIMiddlware
     public function handle(Request $request, Closure $next)
     {
         $bearerToken = $request->header('authorization');
-
+        dd($bearerToken);
         if ($bearerToken == null || $bearerToken == "") {
             return response()->json(['status' => 'Error', 'message' => 'Unauthenticated User.'], 401);
         }
-        
+
         $token = '';
         if ($bearerToken && Str::start($bearerToken, 'Bearer ')) {
             $token = substr($bearerToken, 7); // Remove 'Bearer ' prefix
