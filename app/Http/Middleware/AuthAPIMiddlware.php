@@ -23,10 +23,10 @@ class AuthAPIMiddlware
         if ($bearerToken == null || $bearerToken == "") {
             return response()->json(['status' => 'Error', 'message' => 'Unauthenticated User.'], 401);
         }
-
+        
         $token = '';
         if ($bearerToken && Str::start($bearerToken, 'Bearer ')) {
-            $token = substr($bearerToken, 7); // Remove 'Bearer ' prefix
+            $token = substr($bearerToken, 9); // Remove 'Bearer ' prefix
 
             $pat = DB::table('personal_access_tokens')->where('token', $token)->first();
 
