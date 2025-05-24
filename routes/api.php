@@ -55,14 +55,14 @@ Route::controller(OrderDetailController::class)->middleware('api')->group(functi
     Route::delete('order-details-destroy/{id}', 'destroy');
 });
 
-Route::controller(WishlistController::class)->middleware('api')->group(function () {
+Route::middleware('api')->controller(WishlistController::class)->group(function () {
     Route::post('wishlist-store', 'store');
     Route::get('wishlist-show', 'index');
     Route::delete('wishlist-delete/{productId}', 'destroy');
 });
 
 
-Route::controller(OrderController::class)->middleware('api')->group(function () {
+Route::middleware('api')->controller(OrderController::class)->group(function () {
     Route::post('create-orders', 'createOrder');
     // Route::get('show-orders/{id}', 'showOrder');
 
