@@ -19,7 +19,7 @@ class AuthAPIMiddlware
     public function handle(Request $request, Closure $next)
     {
         $bearerToken = $request->header('authorization');
-        dd($bearerToken);
+
         if ($bearerToken == null || $bearerToken == "") {
             return response()->json(['status' => 'Error', 'message' => 'Unauthenticated User.'], 401);
         }
