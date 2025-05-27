@@ -60,6 +60,7 @@ Route::middleware('api_check')->group(function () {
         Route::post('wishlist-store', 'store');
         Route::get('wishlist-show', 'index');
         Route::delete('wishlist-delete/{productId}', 'destroy');
+        Route::get('check-wishlist', 'checkWishlist');
     });
 
 
