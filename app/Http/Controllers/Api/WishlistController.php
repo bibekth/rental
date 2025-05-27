@@ -52,11 +52,10 @@ class WishlistController extends Controller
     public function checkWishlist(Request $request)
     {
         $check = Wishlist::where('user_id', Auth::id())->where('product_id', $request->product_id)->exists();
-        if($check){
-
-        }else{
-
+        if ($check) {
+            return response()->json(['isLiked' => true], 200);
+        } else {
+            return response()->json(['isLiked' => false], 200);
         }
-        
     }
 }
