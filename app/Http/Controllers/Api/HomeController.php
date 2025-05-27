@@ -21,7 +21,7 @@ class HomeController extends Controller
         // yo vanya chai select * garya jasto ho hai
         // $products = Product::get();
         // $products = DB::table('product')
-        $products = Product::with('category')->get();
+        $products = Product::with('category')->where('user_id', '!=', Auth::id())->get();
         // $products = Product::with('category')-> take(1)->get();
         // $products = Product::with('category')->where('amount', 25)->take(1)->get();
         if ($products->isNotEmpty()) {
