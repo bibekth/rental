@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class
         ]);
         
-        $user = User::factory()->create([
+        $user = User::create([
             'name' => 'admin',
             'email' => 'admin@rental.com',   
             'password'=> Hash::make('password'),
@@ -27,13 +27,13 @@ class DatabaseSeeder extends Seeder
 
         $user->assignRole('admin');
 
-        $userOne = User::factory()->create([
+        $userOne = User::create([
             'name' => 'User One',
             'email' => 'userone@rental.com',   
             'password'=> Hash::make('password'),
             'phonenumber' => '9800000001'
         ]);
-        $userTwo = User::factory()->create([
+        $userTwo = User::create([
             'name' => 'User Two',
             'email' => 'usertwo@rental.com',   
             'password'=> Hash::make('password'),
