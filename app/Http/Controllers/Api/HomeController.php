@@ -43,7 +43,7 @@ class HomeController extends Controller
             Product::find($request->product_id)->update(['rented_by'=>Auth::id(),'rented_upto'=>$upto]);
             return ResponseHelper::success(message: 'Success', data: [], statusCode: 200);
         }catch(Throwable $e){
-            return ResponseHelper::success(message: 'Failed', data: [], statusCode: 500);
+            return ResponseHelper::success(message: $e->getMessage(), data: [], statusCode: 500);
         }
     }
 
