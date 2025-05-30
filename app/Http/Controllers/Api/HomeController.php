@@ -40,6 +40,7 @@ class HomeController extends Controller
     {
         $upto = today()->addMonths($request->month);
         Product::find($request->product_id)->update(['rented_by'=>Auth::id(),'rented_upto'=>$upto]);
+        return ResponseHelper::success(message: 'Success', data: [], statusCode: 200);
     }
 
     public function categoryList()
