@@ -18,7 +18,7 @@ class HomeController extends Controller
 {
     public function productList()
     {
-        $products = Product::with('category')->where('user_id', '!=', Auth::id())->get();
+        $products = Product::with('category')->where('user_id', '!=', Auth::id())->where('rented_by', null)->get();
         if ($products->isNotEmpty()) {
             return ResponseHelper::success(message: 'All Products', data: $products, statusCode: 200);
         } else {
