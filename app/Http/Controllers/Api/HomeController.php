@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function productRented(Request $request)
     {
         try{
-            $upto = today()->addMonths($request->month);
+            $upto = today()->addMonths((int) $request->month);
             Product::find($request->product_id)->update(['rented_by'=>Auth::id(),'rented_upto'=>$upto]);
             return ResponseHelper::success(message: 'Success', data: [], statusCode: 200);
         }catch(Throwable $e){
