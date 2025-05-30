@@ -14,13 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        // database lai seeder use gar vaneko
         $this->call([
             RoleSeeder::class
         ]);
@@ -29,11 +22,25 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@rental.com',   
             'password'=> Hash::make('password'),
-            'phonenumber' => '9865206679'
+            'phonenumber' => '9800000000'
         ]);
 
         $user->assignRole('admin');
 
+        $userOne = User::factory()->create([
+            'name' => 'User One',
+            'email' => 'userone@rental.com',   
+            'password'=> Hash::make('password'),
+            'phonenumber' => '9800000001'
+        ]);
+        $userTwo = User::factory()->create([
+            'name' => 'User Two',
+            'email' => 'usertwo@rental.com',   
+            'password'=> Hash::make('password'),
+            'phonenumber' => '9800000002'
+        ]);
+        $userOne->assignRole('User');
+        $userTwo->assignRole('User');
         
     }
 }

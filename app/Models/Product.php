@@ -19,6 +19,8 @@ class Product extends Model
         'photo',
         'category_id',
         'purchase_date',
+        'rented_by',
+        'rented_upto',
     ];
     public function category(): BelongsTo
     {

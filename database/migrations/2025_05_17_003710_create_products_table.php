@@ -21,6 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->date('purchase_date');
+            $table->foreignId('rented_by')->constrained('users','id')->nullable();
+            $table->date('rented_upto')->nullable();
             $table->timestamps();
         });
     }

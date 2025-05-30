@@ -18,12 +18,7 @@ class HomeController extends Controller
 {
     public function productList()
     {
-        // yo vanya chai select * garya jasto ho hai
-        // $products = Product::get();
-        // $products = DB::table('product')
         $products = Product::with('category')->where('user_id', '!=', Auth::id())->get();
-        // $products = Product::with('category')-> take(1)->get();
-        // $products = Product::with('category')->where('amount', 25)->take(1)->get();
         if ($products->isNotEmpty()) {
             return ResponseHelper::success(message: 'All Products', data: $products, statusCode: 200);
         } else {
@@ -33,17 +28,18 @@ class HomeController extends Controller
     
     public function myProductList()
     {
-        // yo vanya chai select * garya jasto ho hai
-        // $products = Product::get();
-        // $products = DB::table('product')
         $products = Product::with('category')->where('user_id', Auth::id())->get();
-        // $products = Product::with('category')-> take(1)->get();
-        // $products = Product::with('category')->where('amount', 25)->take(1)->get();
         if ($products->isNotEmpty()) {
             return ResponseHelper::success(message: 'All Products', data: $products, statusCode: 200);
         } else {
             return ResponseHelper::success(message: 'No products found', data: [], statusCode: 200);
         }
+    }
+
+    public function productRented(Request $request)
+    {
+        $upto = today()->addMonths($request->month);
+        Product::find($request->product_id)->update(['rented_by'=>Auth::id(),'rented_upto'=>$upto]);
     }
 
     public function categoryList()
