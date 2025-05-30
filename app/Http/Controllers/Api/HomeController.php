@@ -38,9 +38,13 @@ class HomeController extends Controller
 
     public function productRented(Request $request)
     {
-        $upto = today()->addMonths($request->month);
-        Product::find($request->product_id)->update(['rented_by'=>Auth::id(),'rented_upto'=>$upto]);
-        return ResponseHelper::success(message: 'Success', data: [], statusCode: 200);
+        try{
+            $upto = today()->addMonths($request->month);
+            Product::find($request->product_id)->update(['rented_by'=>Auth::id(),'rented_upto'=>$upto]);
+            return ResponseHelper::success(message: 'Success', data: [], statusCode: 200);
+        }catch(Throwable $e){
+            return ResponseHelper::success(message: 'Failed', data: [], statusCode: 500);
+        }
     }
 
     public function categoryList()
