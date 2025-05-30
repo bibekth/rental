@@ -98,7 +98,7 @@ class HomeController extends Controller
             $hash = "sha256=" . hash_hmac("sha256", $payload, $secret);
             if (!hash_equals($hash, $signature)) {
                 http_response_code(403);
-                exit("Invalid Signature");
+                return "Invalid Signature";
             }
 
             $data = json_decode($payload, true);
