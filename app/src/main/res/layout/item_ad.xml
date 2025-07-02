@@ -1,0 +1,57 @@
+<!-- res/layout/item_ad.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/ad_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="197dp"
+        android:layout_marginEnd="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/ad_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ad_image"
+        android:layout_alignParentTop="true"
+        android:text="Ad Name"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/ad_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ad_name"
+        android:layout_toEndOf="@id/ad_image"
+        android:text="Price"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/ad_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ad_price"
+        android:layout_toEndOf="@id/ad_image"
+        android:text="Category"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+
+    <TextView
+        android:id="@+id/ad_purchase_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ad_category"
+        android:layout_toEndOf="@id/ad_image"
+        android:text="Purchase Year"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+</RelativeLayout>

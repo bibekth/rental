@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/orderDetailLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".OrderDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Order Details Title -->
+        <TextView
+            android:id="@+id/orderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Order Details"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/backButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintHorizontal_bias="0.5"/>
+
+        <!-- Mobile Number EditText -->
+        <EditText
+            android:id="@+id/mobileNumberEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="For how many months?"
+            android:background="@drawable/input_field"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColorHint="@color/hint_color"
+            android:textColor="@color/text"
+            app:layout_constraintTop_toBottomOf="@id/orderTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:inputType="number"
+            android:autofillHints="" />
+
+        <TextView
+            android:id="@+id/tvRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text"
+            android:text="Rate per Month: Rs 2000"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobileNumberEditText" />
+
+        <!-- Delivery Address EditText -->
+<!--        <EditText-->
+<!--            android:id="@+id/deliveryAddressEditText"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Enter your delivery address"-->
+<!--            android:background="@drawable/input_field"-->
+<!--            android:padding="16dp"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColorHint="@color/hint_color"-->
+<!--            android:textColor="@color/text"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/mobileNumberEditText"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginEnd="16dp"/>-->
+
+        <!-- Payment Method EditText -->
+<!--        <EditText-->
+<!--            android:id="@+id/paymentMethodEditText"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Enter your payment method"-->
+<!--            android:background="@drawable/input_field"-->
+<!--            android:padding="16dp"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColorHint="@color/hint_color"-->
+<!--            android:textColor="@color/text"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/deliveryAddressEditText"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginEnd="16dp"/>-->
+
+
+        <!-- Submit Order Button -->
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/cashPaymentInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/background_light"
+            android:padding="8dp"
+            android:text="We notify you that we only accept Cash on delivery for right now.Any other payment method input will not be proceed. Thnkyou!!"
+            android:textColor="@color/darker"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/totalContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/totalContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/submitOrderButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.945">
+
+            <!-- Grand Total Label -->
+            <TextView
+                android:id="@+id/grandTotalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Grand Total:"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Grand Total Amount -->
+            <TextView
+                android:id="@+id/grandTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Rs. 208000"
+                android:textColor="@color/text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/grandTotalLabel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitOrderButton"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            app:backgroundTint="@color/primary"
+            android:background="@drawable/button_shape"
+            android:text="Pay with Esewa"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Bottom Sheet CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:elevation="16dp"
+        android:layout_margin="16dp"
+        android:visibility="gone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EAEAEA"
+            android:padding="16dp">
+
+            <!-- Close Button -->
+            <ImageView
+                android:id="@+id/close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cross"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Success Icon -->
+            <ImageView
+                android:id="@+id/success_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/close_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="32dp"/>
+
+            <!-- Congratulations Text -->
+            <TextView
+                android:id="@+id/congratulations_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Congratulations"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text"
+                app:layout_constraintTop_toBottomOf="@id/success_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
+
+            <!-- Payment Success Text -->
+            <TextView
+                android:id="@+id/payment_success_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment success"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                app:layout_constraintTop_toBottomOf="@id/congratulations_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="4dp" />
+
+            <!-- Done Button -->
+            <Button
+                android:id="@+id/done_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/payment_success_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="32dp"
+                app:layout_constraintWidth_percent="0.7"/>
+
+            <!-- Decorative Bubbles -->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Rental  App</string>
+    <string name="slogan">Buy smart, save more</string>
+    <string name="register_prompt">Don’t Have Account? <font color='#FF7043'>Register</font></string>
+    <string name="loginTextView">Already have account? <font color='#FF7043'>Login</font></string>
+    <string name="product_image">Product Image</string>
+    <string name="login">Login</string>
+    <string name="login_to_your_account">Login To Your Account</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="just_a_moment">Just a moment</string>
+    <string name="buy_sell_repeat">Buy. Sell. Repeat.</string>
+    <string name="back">Back</string>
+    <string name="already_have_an_account">Already have an account? <font color="#FF7043">Login</font></string>
+
+    <string name="title_home"></string>
+    <string name="title_list"></string>
+    <string name="title_notifications"></string>
+    <string name="title_profile"></string>
+    <string name="back_button">Back</string>
+    <string name="add_your_product">Add Your Product</string>
+    <string name="like_button_description">Like button</string>
+
+    <string name="settings">Settings</string>
+    <string name="app_logo">App Logo</string>
+
+
+    <string name="options">Options</string>
+
+    <string-array name="category_array">
+        <item>Choose Your Category</item>
+        <item>Books and Learning</item>
+        <item>Beauty and Health</item>
+        <item>Automobiles</item>
+        <item>Clothes and Brand</item>
+        <item>Electronics</item>
+        <item>BUisness and Industrial</item>
+        <item>Pets and Care</item>
+        <item>Jobs</item>
+        <!-- Add more categories as needed -->
+    </string-array>
+
+</resources>
+

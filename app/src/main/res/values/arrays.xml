@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="negotiable_options">
+        <item>Negotiable</item>
+        <item>Non-Negotiable</item>
+    </string-array>
+</resources>

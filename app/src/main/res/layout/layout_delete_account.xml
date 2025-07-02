@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete My Account"
+            android:textSize="16sp"
+            android:textColor="@color/text"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/cancelButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/cross"
+            android:layout_gravity="end"
+            android:contentDescription="Cancel" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Reason to delete user account?"
+        android:textSize="12sp"
+        android:textColor="@color/text" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:hint="Description"
+        android:maxLength="500"
+
+        android:gravity="top"
+        android:padding="8dp"
+        android:background="@drawable/edittext_background"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/text"
+        android:text="Deleting account will remove all your product and personal information from all pages and app."
+        android:textAppearance="?attr/textAppearanceBody2" />
+
+    <Button
+        android:id="@+id/deleteAccountButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Delete My Account"
+        android:background="@drawable/button_shape"
+        android:backgroundTint="@color/primary"
+        android:textColor="#ffffff"
+        app:cornerRadius="5dp"
+        />
+</LinearLayout>
